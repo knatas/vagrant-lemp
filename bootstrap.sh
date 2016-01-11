@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PASSWORD='root'
-hosts=(test sandelis)
+hosts=(test.local sandelis.local)
 
 # install NGINX
 sudo apt-get install -y nginx
@@ -66,7 +66,7 @@ VHOST=$(cat << EOF
 server {
         listen       80;
 
-        server_name  $i.local;
+        server_name  $i;
         root /home/vagrant/public_html/$i;
         index index.html index.htm index.php;
 
@@ -86,8 +86,8 @@ server {
 EOF
 )
 # Enable site
-sudo echo "${VHOST}" > /etc/nginx/sites-available/$i.local.conf
-sudo ln -s /etc/nginx/sites-available/$i.local.conf /etc/nginx/sites-enabled/
+sudo echo "${VHOST}" > /etc/nginx/sites-available/$i.conf
+sudo ln -s /etc/nginx/sites-available/$i.conf /etc/nginx/sites-enabled/
 
 done
 
