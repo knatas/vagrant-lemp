@@ -29,7 +29,7 @@ config.vm.synced_folder "../public_html/sandelis", "/home/vagrant/public_html/sa
   #   	vb.gui = true
   #
   #   	# Customize the amount of memory on the VM:
-    	vb.memory = "1024"
+    	vb.memory = "104"
    end
 
   config.vm.provision :shell, path: "bootstrap.sh"
